@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'app-root',
@@ -6,6 +7,16 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    public yesNoAnswer = "no";
+    public form!: FormGroup;
     title = 'accessibility';
+
+    constructor(private _formBuilder: FormBuilder){
+        this.form = this._formBuilder.group({
+            yesNoAnswer: ['no']
+        });
+    }
+
+    public submit(): void{
+        console.log(this.form.value)
+    }
 }
