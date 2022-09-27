@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { YesNoButtonGroupComponent } from './yes-no-button-group/yes-no-button-group.component';
+import { KeyboardManagerModule } from '../shared/directives/key-manager/keyboard-manager.module';
 
 
 
@@ -9,7 +10,8 @@ import { YesNoButtonGroupComponent } from './yes-no-button-group/yes-no-button-g
         YesNoButtonGroupComponent
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        KeyboardManagerModule
     ],
     exports: [
         YesNoButtonGroupComponent
