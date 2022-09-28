@@ -3,7 +3,9 @@
     [attr.aria-labelledby]="id"
     class="button-group">
     <label [attr.id]="id" class="label">{{ label }}</label>
-    <button role="radio"
+    <button app-keyboard-managed-item
+        (focused)="activate(options.YES)"
+        role="radio"
         type="button"   
         class="button button-yes"
         tabindex="-1"
@@ -11,7 +13,9 @@
         [class.button-pressed]="value === options.YES"
         [attr.tabindex]="value === options.YES || value === null ? 0 : -1"
         (click)="activate(options.YES)">Yes</button>
-    <button role="radio"
+    <button app-keyboard-managed-item
+        (focused)="activate(options.NO)"
+        role="radio"
         type="button" 
         class="button button-no"
         tabindex="-1"
