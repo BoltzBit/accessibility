@@ -12,7 +12,10 @@ export class AppComponent {
 
     constructor(private _formBuilder: FormBuilder){
         this.form = this._formBuilder.group({
-            yesNoAnswer: [null]
+            yesNoAnswer: [{
+                value: 'no',
+                disabled: false
+            }]
         });
     }
 

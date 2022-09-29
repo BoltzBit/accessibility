@@ -1,7 +1,6 @@
 import { Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { UniqueIdService } from 'src/app/shared/service/unique-id/unique-id.service';
-import * as uuid from 'uuid';
 
 enum YesNoButtonGroupOptions{
     YES = 'yes',
@@ -23,6 +22,7 @@ enum YesNoButtonGroupOptions{
 
 //dizer pro componente implementar a interface que interage com o FormGroup
 export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
+    @Input() disabled!: boolean;
     @Input() value!: string;
     @Input() label!: string;
     @Output() valueChange =  new EventEmitter<string>();
@@ -56,7 +56,7 @@ export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
     }
 
     public setDisabledState(isDisabled: boolean): void {
-        
+        this.disabled = isDisabled;
     }
 
     public activate(value: string): void{
