@@ -1,4 +1,36 @@
-<div app-keyboard-manager 
+<div class="button-group"
+    role="radiogroup"
+    [attr.label]="label">
+
+    <label>{{label}}</label>
+
+    <div class="radio">
+        <input 
+            [attr.id]="id + '-yes'"
+            type="radio"
+            [attr.name]="id"
+            [attr.checked]="value === options.YES"
+            (change)="activate(options.YES)">
+            <label [attr.for]="id + 'yes'" class="button button-yes">
+                Yes
+            </label>
+    </div>
+
+    <div class="radio">
+        <input 
+            [attr.id]="id + '-no'"
+            type="radio"
+            [attr.name]="id"
+            [attr.checked]="value === options.NO"
+            (change)="activate(options.NO)">
+            <label [attr.for]="id + 'no'" class="button button-no">
+                NO
+            </label>
+    </div>
+</div>
+
+
+<!-- <div app-keyboard-manager 
     role="radiogroup"
     [attr.aria-labelledby]="id"
     class="button-group">
@@ -25,4 +57,4 @@
         [class.button-pressed] = "value === options.NO"
         [attr.tabindex]="value === options.NO || value === null ? 0 : -1"
         (click)="activate(options.NO)">No</button>
-</div>
+</div> -->
